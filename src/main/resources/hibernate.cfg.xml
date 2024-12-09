@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory> <!--  -->
+        <!--1-JDBC icin gerekli ayarlari yapiyoruz-->
+
+        <!--JDBC driver classının yerini tanımlaniyor. -->
+        <property name = "hibernate.connection.driver_class">org.postgresql.Driver</property>
+
+        <property name="connection.url">jdbc:postgresql://localhost:5432/hibernate_db</property>
+
+        <property name="connection.username">techpro</property>
+
+        <property name="connection.password">password</property>
+
+        <!--2-ORM nesnelerin data base tablolari ile eslestirilmesi-->
+
+        <!-- belirtilen veritabanı için SQL sorgularının Hibernate tarafından oluşturulması için gereklidir -->
+        <property name = "hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+
+        <!-- ddl.auto create ise uygulama her çalıştırıldığında schema yeniden oluşturulur.
+             update: schema silinmez değişiklik var ise güncellenir.
+             create-drop: schemanızı uygulama çalıştırıldığında oluşturuyor, sonlandığında schema siliniyor.
+             validate: schema'yı validate yapıyor.
+             none: yukarıdakilerin hiç birisini yapmıyor.
+         -->
+
+        <property name="hbm2ddl.auto">update</property>
+        <!--uygulama baslatilinca uygulama semasinin durumunu belirlemede kullanilir-->
+        <!-- ddl.auto create ise uygulama her çalıştırıldığında schema yeniden oluşturulur.
+             update: schema silinmez değişiklik var ise güncellenir.
+             create-drop: schemanızı uygulama çalıştırıldığında oluşturuyor, sonlandığında schema siliniyor.
+             validate: schema'yı validate yapıyor.
+             none: yukarıdakilerin hiç birisini yapmıyor.
+         -->
+
+        <property name="show_sql">true</property>  <!--hibernate benim yerime hangi sorgulari nasil yapiyor gormek icin kullanilir-->
+
+        <property name="format_sql">true</property> <!--hangi formatta yazacaksaniz duzenli kod yazimini sagliyor hizalama-->
+
+    </session-factory>
+
+</hibernate-configuration>
