@@ -45,6 +45,15 @@
 
         <property name="format_sql">true</property> <!--hangi formatta yazacaksaniz duzenli kod yazimini sagliyor hizalama-->
 
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+
+        <property name="hibernate.cache.use_query_cache">true</property>
+
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.internal.JCacheRegionFactory</property>
+
+        <property name="hibernate.javax.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider</property>
+
+
     </session-factory>
 
 </hibernate-configuration>
